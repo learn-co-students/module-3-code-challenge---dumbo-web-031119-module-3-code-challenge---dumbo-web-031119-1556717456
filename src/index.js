@@ -4,6 +4,7 @@ console.log('YOU GOOD TO GO PAPI CHULO LETS GET IT')
 
   const beerListUl = document.getElementById('list-group')
   const beerDetail = document.getElementById('beer-detail')
+  const beerFoodPairing = document.getElementById('food-pairings')
 
   //get beer list here
   fetch('http://localhost:3000/beers')
@@ -25,26 +26,7 @@ console.log('YOU GOOD TO GO PAPI CHULO LETS GET IT')
     fetch(`http://localhost:3000/beers/${id}`)
     .then(resp=>resp.json())
     .then(beerToDisplay=>{
-          beerDetail.innerHTML=''
-      let beerH1 = document.createElement('h1')
-          beerH1.innerText = beerToDisplay.name
-      let beerImg = document.createElement('img')
-          beerImg.src = beerToDisplay.image_url
-      let beerH3 = document.createElement('h3')
-          beerH3.innerText = beerToDisplay.tagline
-      let beerDescription = document.createElement('textarea')
-          beerDescription.innerText = beerToDisplay.description
-      let beerButton = document.createElement('button')
-          beerButton.id = 'edit-beer'
-          beerButton.className = 'btn btn-info'
-          beerButton.innerText = 'Save'
-          beerButton.dataset.beerId = beerToDisplay.id
-
-          beerDetail.appendChild(beerH1)
-          beerDetail.appendChild(beerImg)
-          beerDetail.appendChild(beerH3)
-          beerDetail.appendChild(beerDescription)
-          beerDetail.appendChild(beerButton)
+      setMainBeerDetail(beerToDisplay)
     })
 
 
@@ -66,6 +48,36 @@ console.log('YOU GOOD TO GO PAPI CHULO LETS GET IT')
       }
     })
 
+
+
+
+ const setMainBeerDetail = beer =>{
+   beerDetail.innerHTML=''
+let beerH1 = document.createElement('h1')
+   beerH1.innerText = beer.name
+let beerImg = document.createElement('img')
+   beerImg.src = beer.image_url
+let beerH3 = document.createElement('h3')
+   beerH3.innerText = beer.tagline
+let beerDescription = document.createElement('textarea')
+   beerDescription.innerText = beer.description
+let beerButton = document.createElement('button')
+   beerButton.id = 'edit-beer'
+   beerButton.className = 'btn btn-info'
+   beerButton.innerText = 'Save'
+   beerButton.dataset.beerId = beer.id
+   beerDetail.appendChild(beerH1)
+   beerDetail.appendChild(beerImg)
+   beerDetail.appendChild(beerH3)
+   beerDetail.appendChild(beerDescription)
+   beerDetail.appendChild(beerButton)
+   // debugger 
+   // beer.food_pairing.forEach(foodItem=>{
+   //   let li = document.createElement('li')
+   //       li.innerText = foodItem
+   //    beerFoodPairing.appendChild(li)
+   // })
+ }
 
 
   })
