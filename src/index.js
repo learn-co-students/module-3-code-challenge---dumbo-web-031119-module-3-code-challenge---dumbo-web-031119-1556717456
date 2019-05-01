@@ -42,6 +42,8 @@ function renderMainBeerHtml(beer){
 document.getElementById("beer-detail").innerHTML =
 `<h1>${beer.name}</h1>
 <img src=${beer.image_url}>
+<h4> FIRST BREWED: ${beer.first_brewed}</h4>
+<h4> BREWER'S TIPS: ${beer.brewers_tips}</h4>
 <h3>${beer.tagline}</h3>
 <textarea>${beer.description}</textarea>
 <button id="edit-beer" class="btn btn-info" data-id=${beer.id}>
