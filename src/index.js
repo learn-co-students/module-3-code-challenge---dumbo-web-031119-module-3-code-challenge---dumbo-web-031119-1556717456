@@ -11,7 +11,7 @@ const fetchBeer = (beerID) => {
     return fetch(`http://localhost:3000/beers/${beerID}`)
         .then(resp => resp.json())
 }
-
+//
 const updateBeer = (event) => {
     let newDesc = event.target.previousElementSibling.value
     let beerID = (event.target.dataset.id);
