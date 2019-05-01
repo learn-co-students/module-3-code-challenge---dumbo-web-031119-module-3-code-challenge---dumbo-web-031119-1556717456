@@ -41,7 +41,7 @@ const renderBeers = (beer) => {
 
   ulTag.addEventListener('click', e => {
     if (e.target.tagName === "LI") {
-      let beerId = e.target.dataset.id
+      let beerId = e.target.dataset.id;
       getOneBeer(beerId)
     }
   })
