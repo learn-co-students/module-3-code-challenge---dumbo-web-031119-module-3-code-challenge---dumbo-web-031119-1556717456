@@ -1,4 +1,4 @@
-const BEERURL = 'http://0.0.0.0:3000/beers'
+const BEERURL = 'http://localhost:3000/beers'
 const beerUl = document.querySelector('#list-group')
 const beerDiv = document.querySelector('#beer-detail')
 
@@ -32,12 +32,12 @@ const addBeerToUl = (beer) => {
 // innerHTML way
 const showBeerInDiv = (beer) => {
  	return `<h1>${beer.name}</h1>
-	<img src="${beer.image_url}">
-	<h3>${beer.tagline}</h3>
-	<textarea>${beer.description}</textarea>
-	<button id="edit-beer" class="btn btn-info" data-id="${beer.id}">
-	  Save
-	</button>`
+			<img src="${beer.image_url}">
+			<h3>${beer.tagline}</h3>
+			<textarea>${beer.description}</textarea>
+			<button id="edit-beer" class="btn btn-info" data-id="${beer.id}">
+	  		Save
+			</button>`
 }
 
 // createElement way - no return values
